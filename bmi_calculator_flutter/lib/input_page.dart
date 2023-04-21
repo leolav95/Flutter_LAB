@@ -16,7 +16,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender;
+  late Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -32,40 +32,34 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          print("Male");
+                      child: ReusableCard(
+                        pressHandler: () {
                           setState(() {
                             selectedGender = Gender.Male;
                           });
                         },
-                        child: ReusableCard(
-                          color: selectedGender == Gender.Male
-                              ? activeCardColor
-                              : inactiveCardColor,
-                          cardChild: IContent(
-                            type: "MALE",
-                            icon: FontAwesomeIcons.mars,
-                          ),
+                        color: selectedGender == Gender.Male
+                            ? activeCardColor
+                            : inactiveCardColor,
+                        cardChild: IContent(
+                          type: "MALE",
+                          icon: FontAwesomeIcons.mars,
                         ),
                       ),
                     ),
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
+                      child: ReusableCard(
+                        pressHandler: () {
                           setState(() {
                             selectedGender = Gender.Female;
                           });
-                          print("Female");
                         },
-                        child: ReusableCard(
-                          color: selectedGender == Gender.Female
-                              ? activeCardColor
-                              : inactiveCardColor,
-                          cardChild: IContent(
-                            type: "FEMALE",
-                            icon: FontAwesomeIcons.venus,
-                          ),
+                        color: selectedGender == Gender.Female
+                            ? activeCardColor
+                            : inactiveCardColor,
+                        cardChild: IContent(
+                          type: "FEMALE",
+                          icon: FontAwesomeIcons.venus,
                         ),
                       ),
                     ),
