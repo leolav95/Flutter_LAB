@@ -19,6 +19,12 @@ class _InputPageState extends State<InputPage> {
   late Gender selectedGender;
 
   @override
+  void initState() {
+    selectedGender = Gender.Male;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
